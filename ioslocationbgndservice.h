@@ -18,6 +18,7 @@
 @interface IosLocationBgndService: NSObject<CLLocationManagerDelegate>
 {
   IosInterface *observer;
+  CLLocationManager *manager;
 }
 
 -(id)initWithObserver:(IosInterface *)iosObserver;

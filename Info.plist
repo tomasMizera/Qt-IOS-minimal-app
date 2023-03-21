@@ -27,9 +27,14 @@
 	<key>MinimumOSVersion</key>
 	<string>${IPHONEOS_DEPLOYMENT_TARGET}</string>
 
-	<!-- <key>NSLocationAlwaysUsageDescription</key>
-	<string>Program requires GPS to show you current position on map and capture spatial data for surveying.</string> -->
+	<!-- <key>NSLocationAlwaysAndWhenInUseUsageDescription</key> -->
+	<!-- <string>Program requires GPS to show you current position on map and capture spatial data for surveying.</string> -->
 
+	<!-- Run the app in the background -->
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>location</string>
+	</array>
 
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Program requires GPS to show you current position on map and capture spatial data for surveying.</string>

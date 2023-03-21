@@ -16,7 +16,11 @@
 {
   NSString *response = nil;
 
-  CLLocationManager *manager = [[ CLLocationManager alloc ] init ];
+  if ( manager == nil ) {
+    manager = [[ CLLocationManager alloc ] init ];
+
+    response = @"Info: Built location manager!";
+  }
 
   if ([CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
     [manager requestWhenInUseAuthorization];
@@ -26,10 +30,13 @@
     response = @"Info: Did not request authorization, other state";
   }
 
-  manager.delegate = self;
-  [manager requestLocation];
+  response = [response stringByAppendingString:@" Requested location"];
 
-  response = [response stringByAppendingString:@"Requested location"];
+  manager.delegate = self;
+  [manager startUpdatingLocation];
+  manager.allowsBackgroundLocationUpdates = true;
+
+  response = [response stringByAppendingString:@" Started updates"];
 
   return response;
 }
